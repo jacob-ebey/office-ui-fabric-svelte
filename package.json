@@ -1,6 +1,6 @@
 {
   "version": "0.0.1",
-  "name": "svelte-office-ui-fabric",
+  "name": "office-ui-fabric-svelte",
   "main": "dist/office-ui-fabric-svelte.js",
   "common": "dist/office-ui-fabric-svelte.common.js",
   "umd": "dist/office-ui-fabric-svelte.umd.js",
@@ -31,5 +31,12 @@
     "fabric",
     "svelte",
     "components"
+  ],
+  "files": [
+    "dist",
+    "src",
+    "package.json",
+    "README.ms",
+    "rollup.config.js"
   ]
 }
