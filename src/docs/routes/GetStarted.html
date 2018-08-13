@@ -1,0 +1,126 @@
+<div class="wrapper">
+  <h1 class="ms-font-su ms-bgColor-magentaDark">Get Started</h1>
+  <main>
+    <p class="ms-font-xl">Get started with Fabric Svelte</p>
+    <p class="ms-font-l space">Use NPM to get Fabric Svelte components and core styling.</p>
+    <br />
+
+    <div class="step">
+      <span class="ms-font-su ms-fontColor-magentaDark">1</span>
+      <div>
+        <p class="ms-font-m">To install the Fabric Svelte NPM package, from the root of your project, run:</p>
+        <pre><code>npm install -s office-ui-fabric-svelte</code></pre>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="step">
+      <span class="ms-font-su ms-fontColor-magentaDark">2</span>
+      <div>
+        <p class="ms-font-m">
+          The library includes commonjs (<em>dist/index.common.js</em>), es modules (<em>dist/index.js</em>) and UMD (<em>dist/index.umd.js</em>). The raw Svelte components
+          are also provided if you wish to compile it as part of your build process.
+        </p>
+        <p class="ms-font-m">
+          The easiest way to get started is to import from the root as follows:
+        </p>
+        <pre><code>{`<Button>I'm a button!</Button>
+
+<script>
+  import { Button } from 'office-ui-fabric-svelte';
+
+  export default {
+    components: {
+      Button
+    }
+  };
+</script>`}</code></pre>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="step">
+      <span class="ms-font-su ms-fontColor-magentaDark">3</span>
+      <div>
+        <p class="ms-font-m">
+          Add props to your components to take advantage of Fabric Svelte's rich functionality.
+        </p>
+        <pre><code>{`<Button
+  primary
+  on:click="console.log('Button clicked!')"
+>
+  I'm a button!
+</Button>`}</code></pre>
+
+        <Button
+          primary
+          on:click="console.log('Button clicked!')"
+        >
+          I'm a button!
+        </Button>
+
+        <p class="ms-font-m">For more information about using components, check out the <a href="#components">components</a> page.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<style lang="sass">
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Common";
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Responsive.Variables";
+
+  .wrapper {
+    @include flexBox;
+    flex-direction: column;
+    flex: 1;
+    margin: 0 auto;
+    width: -webkit-fill-available;
+    max-width: $ms-screen-xl-min;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 40px 20px;
+  }
+
+  hr {
+    margin: 40px 0;
+  }
+
+  .space {
+    margin-bottom: 40px;
+  }
+
+  main {
+    flex: 1;
+    padding: 0 20px;
+    padding-bottom: 80px;
+    color: $ms-color-black;
+    background-color: $ms-color-neutralLighter;
+  }
+
+  .step {
+    display: flex;
+    & > span {
+      text-align: center;
+      width: 50px;
+      margin-right: 15px;
+    }
+
+    & > div {
+      flex: 1;
+    }
+  }
+</style>
+
+<script>
+  import { Button } from '../../office-ui-fabric-svelte';
+
+  export default {
+    components: {
+      Button
+    }
+  }
+</script>

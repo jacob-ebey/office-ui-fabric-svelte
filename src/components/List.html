@@ -1,0 +1,18 @@
+<ul class="ms-List {className}">
+  <slot />
+</ul>
+
+<style lang="sass">
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Common";
+  @import "node_modules/office-ui-fabric-js/dist/components/List/List";
+</style>
+
+<script>
+  export default {
+    data() {
+      return {
+        className: ''
+      };
+    }
+  };
+</script>

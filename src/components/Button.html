@@ -1,0 +1,51 @@
+{#if href}
+  <a
+    href={href}
+    class="ms-Button {primary?'ms-Button--primary':''} {disabled?'is-disabled':''} {className}"
+    disabled={disabled}
+    on:click="onClick(event)"
+  >
+      <span class="ms-Button-label"><slot /></span>
+  </a>
+{:else}
+  <button
+    class="ms-Button {primary?'ms-Button--primary':''} {disabled?'is-disabled':''} {className}"
+    disabled={disabled}
+    on:click="onClick(event)"
+  >
+      <span class="ms-Button-label"><slot /></span>
+  </button>
+{/if}
+
+<style lang="sass">
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Common";
+  @import "node_modules/office-ui-fabric-js/dist/components/Button/Button";
+
+  .ms-Button {
+    text-decoration: none;
+  }
+</style>
+
+<script>
+  export default {
+    data() {
+      return {
+        className: '',
+        disabled: false,
+        href: '',
+        primary: false
+      }
+    },
+    methods: {
+      onClick(event) {
+        const { href, disabled } = this.get();
+
+        if (disabled) {
+          event.preventDefault();
+        } else {
+          this.fire('click', event)
+        }
+      }
+    }
+  };
+</script>

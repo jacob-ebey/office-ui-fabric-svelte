@@ -1,0 +1,65 @@
+{#if !href}
+  <li class="ms-ListItem {unread?'is-unread':''} {selectable?'is-selectable':''} {selected?'is-selected':''} {className}" on:click>
+    <span class="ms-ListItem-primaryText">{primaryText}</span>
+    <span class="ms-ListItem-secondaryText">{secondaryText}</span>
+    <span class="ms-ListItem-tertiaryText">{tertiaryText}</span>
+    <span class="ms-ListItem-metaText">{metaText}</span>
+    <div class="ms-ListItem-selectionTarget"></div>
+    <div class="ms-ListItem-actions">
+      {#each actions as item}
+        <div class="ms-ListItem-action" on:click="actionClicked(event, item)"><i class="ms-Icon ms-Icon--{item.icon}"></i></div>
+      {/each}
+    </div>
+  </li>
+{:else}
+  <li class="ms-ListItem {unread?'is-unread':''} {selectable?'is-selectable':''} {selected?'is-selected':''} {className}">
+    <a href={href} on:click>
+      <span class="ms-ListItem-primaryText">{primaryText}</span>
+      <span class="ms-ListItem-secondaryText">{secondaryText}</span>
+      <span class="ms-ListItem-tertiaryText">{tertiaryText}</span>
+      <span class="ms-ListItem-metaText">{metaText}</span>
+      <div class="ms-ListItem-selectionTarget"></div>
+      <div class="ms-ListItem-actions">
+        {#each actions as item}
+          <div class="ms-ListItem-action" on:click="actionClicked(event, item)"><i class="ms-Icon ms-Icon--{item.icon}"></i></div>
+        {/each}
+      </div>
+    </a>
+  </li>
+{/if}
+
+<style lang="sass">
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Common";
+  @import "node_modules/office-ui-fabric-js/dist/components/ListItem/ListItem";
+
+  .ms-ListItem > a {
+    text-decoration: none;
+  }
+</style>
+
+<script>
+  import { cancelBubble } from '../tools';
+
+  export default {
+    data() {
+      return {
+        actions: [],
+        className: '',
+        href: '',
+        metaText: '',
+        primaryText: '',
+        secondaryText: '',
+        selectable: false,
+        selected: false,
+        tertiaryText: '',
+        unread: false
+      }
+    },
+    methods: {
+      actionClicked(event, item) {
+        cancelBubble(event);
+        item.onClick && item.onClick(event);
+      }
+    }
+  }
+</script>

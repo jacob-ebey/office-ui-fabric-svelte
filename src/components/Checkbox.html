@@ -1,0 +1,36 @@
+<div class="ms-CheckBox {checked?'is-checked':''} {disabled?'is-disabled':''} {className?className:''}"> 
+  <input
+    id={id}
+    bind:checked="checked"
+    class="ms-CheckBox-input {checked?'is-checked':''} {disabled?'is-disabled':''}"
+    disabled={disabled}
+    type="checkbox"
+  />
+
+  <label
+    for={id}
+    role="checkbox"
+    class="ms-CheckBox-field {checked?'is-checked':''} {disabled?'is-disabled':''}"
+  >
+      <span class="ms-Label"><slot /></span>
+  </label>
+</div>
+
+<style lang="sass">
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Common";
+  @import "node_modules/office-ui-fabric-js/dist/components/Checkbox/Checkbox";
+</style>
+
+<script>
+  import { generateGUID } from '../tools';
+
+  export default {
+    data() {
+      return {
+        id: generateGUID(),
+        className: '',
+        disabled: false
+      };
+    }
+  };
+</script>

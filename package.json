@@ -1,0 +1,35 @@
+{
+  "version": "0.0.1",
+  "name": "svelte-office-ui-fabric",
+  "main": "dist/office-ui-fabric-svelte.js",
+  "common": "dist/office-ui-fabric-svelte.common.js",
+  "umd": "dist/office-ui-fabric-svelte.umd.js",
+  "svelte": "src/office-ui-fabric-svelte.js",
+  "docs": "docs/boot.js",
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build",
+    "dev": "rollup -c --watch"
+  },
+  "dependencies": {
+    "office-ui-fabric-js": "^1.5.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.3",
+    "rollup": "^0.64.1",
+    "rollup-plugin-copy": "^0.2.3",
+    "rollup-plugin-generate-html-template": "^1.1.0",
+    "rollup-plugin-terser": "^1.0.1",
+    "rollup-plugin-svelte": "^4.2.1",
+    "svelte": "^2.9.11",
+    "svelte-extras": "^2.0.2",
+    "svelte-preprocess-sass": "^0.1.0"
+  },
+  "description": "Reusable Svelte components for building experiences for Office 365.",
+  "keywords": [
+    "office",
+    "fabric",
+    "svelte",
+    "components"
+  ]
+}

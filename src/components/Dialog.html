@@ -1,0 +1,75 @@
+<div class="ms-Overlay {open?'is-visible':''}" on:click="fire('close', event)">
+  <div class="ms-Dialog ms-Dialog-main {open?'is-open':''} {className}" on:click="cancelBubble(event)">
+    <div class="ms-Dialog-wrapper">
+      <div class="ms-Dialog-header">
+        <div class="ms-Dialog-title {primary?'ms-bgColor-themePrimary ms-fontColor-white':''}">{title}</div>
+      </div>
+      <div class="ms-Dialog-inner">
+        <div class="ms-Dialog-content {primary?'ms-Dialog-content--primary':''}">
+          <slot />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="sass">
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Common";
+  @import "node_modules/office-ui-fabric-js/dist/components/Dialog/Dialog";
+  @import "node_modules/office-ui-fabric-js/dist/components/Overlay/Overlay";
+
+  .ms-Overlay {
+    z-index: 100;
+  }
+
+  .ms-Dialog {
+    z-index: 101;
+    padding: 0;
+    max-height: 100vh;
+    max-width: 90vw;
+  }
+
+  .ms-Dialog.is-open {
+    display: flex;
+  }
+
+  .ms-Dialog-wrapper {
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+
+  .ms-Dialog-title {
+    position: relative;
+    width: 100%;
+    padding: 28px 24px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .ms-Dialog-content {
+    padding: 20px 24px;
+    padding-top: 0;
+  }
+
+  .ms-Dialog-content--primary {
+    padding-top: 20px;
+  }
+</style>
+
+<script>
+  import { cancelBubble } from "../tools";
+
+  export default {
+    data() {
+      return {
+        className: "",
+        primary: false
+      };
+    },
+    methods: {
+      cancelBubble(event) {
+        cancelBubble(event);
+      }
+    }
+  };
+</script>

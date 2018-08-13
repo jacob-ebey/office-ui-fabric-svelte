@@ -1,0 +1,141 @@
+<div class="wrapper">
+  <h1 class="ms-font-su ms-bgColor-blue">Dialog</h1>
+  <main>
+    <div class="overview">
+      <p class="ms-font-xxl">Overview</p>
+      <p class="ms-font-m-plus">
+        Dialogs are temporary, modal UI overlay that generally provide contextual app information or require user confirmation/input.
+        In most cases, Dialogs block interactions with the web page or application until being explicitly dismissed, and often request
+        action from the user. They are primarily used for lightweight creation or edit tasks, and simple management tasks.
+      </p>
+    </div>
+
+    <div class="example">
+      <p class="ms-font-xxl">Variants</p>
+    </div>
+
+    <div class="example">
+      <p class="ms-font-l">Default</p>
+      <Button on:click="set({ defaultOpen: true })">Open default</Button>
+      <Dialog title="Default Dialog" open={defaultOpen} on:close="set({ defaultOpen: false })">
+        <p>A default dialog.</p>
+      </Dialog>
+    </div>
+
+    <hr />
+
+    <div class="example">
+      <p class="ms-font-l">Primary</p>
+      <Button primary on:click="set({ primaryOpen: true })">Open primary</Button>
+      <Dialog primary title="Primary Dialog" open={primaryOpen} on:close="set({ primaryOpen: false })">
+        <p>A primary dialog.</p>
+      </Dialog>
+    </div>
+
+    <p class="ms-font-xxl">Example</p>
+
+    <pre><code>{`<Button primary on:click="set({ dialogOpen: true })">Open primary</Button>
+
+<Dialog title="Primary Dialog" open={dialogOpen} on:close="set({ dialogOpen: false })">
+  <p>A primary dialog.</p>
+</Dialog>
+
+<script>
+  import { Button, Dialog } from 'office-ui-fabric-svelte';
+
+  export default {
+    components: {
+      Button,
+      Dialog
+    },
+    data() {
+      return {
+        dialogOpen: false
+      };
+    }
+  };
+</script>`}</code></pre>
+
+    <p class="ms-font-xxl">Properties</p>
+    <List>
+      <ListItem
+        primaryText="className"
+        secondaryText="An optional class to add to the dialog."
+      />
+      <ListItem
+        primaryText="open"
+        secondaryText="Open state of the dialog."
+      />
+      <ListItem
+        primaryText="primary"
+        secondaryText="Determines if the dialog is a primary dialog."
+      />
+      <ListItem
+        primaryText="title"
+        secondaryText="Determines if the dialog is a primary dialog."
+      />
+    </List>
+
+    <p class="ms-font-xxl">Events</p>
+    <List>
+      <ListItem
+        primaryText="close"
+        secondaryText="Raised when a user clicks out of the dialog to close it."
+      />
+    </List>
+  </main>
+</div>
+
+<style lang="sass">
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Common";
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Responsive.Variables";
+
+  .wrapper {
+    @include flexBox;
+    flex-direction: column;
+    flex: 1;
+    margin: 0 auto;
+    width: -webkit-fill-available;
+    max-width: $ms-screen-xl-min;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 40px 20px;
+  }
+
+  main {
+    flex: 1;
+    padding: 0 20px;
+    padding-bottom: 100px;
+    color: $ms-color-black;
+    background-color: $ms-color-white;
+  }
+
+  .overview {
+    width: 75%;
+  }
+
+  .example {
+    margin: 1em 0;
+  }
+</style>
+
+<script>
+  import { Button, Dialog, List, ListItem } from '../../../office-ui-fabric-svelte';
+
+  export default {
+    components: {
+      Button,
+      Dialog,
+      List,
+      ListItem
+    },
+    data() {
+      return {
+        defaultOpen: false,
+        primaryOpen: false
+      };
+    }
+  };
+</script>

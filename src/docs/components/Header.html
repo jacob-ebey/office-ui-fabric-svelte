@@ -1,0 +1,119 @@
+<nav class="header sticky ms-bgColor-black">
+  <i class="toggle ms-u-hiddenLgUp ms-Icon ms-Icon--{open?'ChromeClose':'CollapseMenu'} ms-fontColor-white ms-bgColor-themePrimary--hover" on:click="fire('toggle', event)" />
+  <img class="logo" alt="Microsoft Logo" src="./assets/microsoft-logo.png" />
+  <span class="title ms-font-l ms-fontColor-white">Office UI Fabric Svelte</span>
+  <div class="items {open?'open':''}">
+    <a on:click="fire('toggle', event)" href="#home" class="ms-font-m">Home</a>
+    <a on:click="fire('toggle', event)" href="#get-started" class="ms-font-m">Get Started</a>
+    <a on:click="fire('toggle', event)" href="#components" class="ms-font-m">Components</a>
+  </div>
+</nav>
+<div class="header" />
+
+<style lang="sass">
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Common";
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Mixins";
+  @import "node_modules/office-ui-fabric-core/src/sass/Fabric.Color.Mixins.Output";
+  @import "node_modules/office-ui-fabric-core/src/sass/Fabric.Responsive.Utilities.Output";
+
+  .sticky {
+    position: fixed !important;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
+  }
+
+  .header {
+    position: relative;
+    @include flexBox;
+    align-items: center;
+    max-height: 50px;
+    min-height: 50px;
+
+    .toggle {
+      padding: 17px;
+    }
+
+    .logo {
+      position: absolute;
+      width: 108px;
+      height: 23px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .title {
+      display: none;
+    }
+
+    .items {
+      @extend .ms-bgColor-neutralLighter;
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      border: 1px solid $ms-color-neutralQuaternary;
+
+      & > a {
+        cursor: pointer;
+        @extend .ms-bgColor-neutralLight--hover;
+        border-bottom: 1px solid $ms-color-neutralQuaternary;
+        display: block;
+        padding: 10px;
+        color: $ms-color-black;
+        text-decoration: none;
+
+        &:last-child {
+          border-bottom: unset;
+        }
+      }
+
+      &.open {
+        @include flexBox;
+      }
+    }
+
+    @media (min-width: $ms-screen-lg-min) {
+      max-height: 60px;
+      min-height: 60px;
+
+      .logo {
+        position: unset;
+        left: unset;
+        transform: unset;
+        margin: 0 17px;
+      }
+
+      .title {
+        display: unset;
+      }
+
+      .items {
+        position: unset;
+        top: unset;
+        left: unset;
+        right: unset;
+        border: unset;
+        @include flexBox;
+        flex-direction: row;
+        flex: 1;
+        justify-content: flex-end;
+        background-color: $ms-color-black;
+        color: $ms-color-white;
+        margin: 0 10px;
+
+        & > a {
+          border-bottom: unset;
+          color: $ms-color-white;
+
+          &:hover {
+            background-color: $ms-color-neutralDark;
+          }
+        }
+      }
+    }
+  }
+</style>

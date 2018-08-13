@@ -1,0 +1,128 @@
+<div class="wrapper">
+  <h1 class="ms-font-su ms-bgColor-blue">Checkbox</h1>
+  <main>
+    <div class="overview">
+      <p class="ms-font-xxl">Overview</p>
+      <p class="ms-font-m-plus">
+        A Checkbox is a UI element that allows users to switch between two mutually exclusive options (checked or unchecked, on or off) through a single click or tap.
+        It can also be used to indicate a subordinate setting or preference when paired with another control.
+      </p>
+      <p class="ms-font-m-plus">
+        A Checkbox is used to select or deselect action items. It can be used for a single item or for a list of multiple items that a user can choose from.
+        The control has two selection states: unselected and selected.
+      </p>
+      <p class="ms-font-m-plus">
+        Use a single Checkbox for a subordinate setting, such as with a "Remember me?" login scenario or with a terms of service agreement.
+      </p>
+      <p class="ms-font-m-plus">
+        Use multiple Checkboxes for multi-select scenarios in which a user chooses one or more items from a group of choices that are not mutually exclusive.
+      </p>
+    </div>
+
+    <div class="example">
+      <p class="ms-font-xxl">Variants</p>
+      <Checkbox bind:checked=disabled>Disable checkboxes</Checkbox>
+    </div>
+  
+    <hr />
+
+    <div class="example">
+      <p class="ms-font-l">Default</p>
+      <Checkbox disabled={disabled}>Checkbox</Checkbox>
+    </div>
+
+    <p class="ms-font-xxl">Example</p>
+
+    <pre><code>{`<Checkbox bind:checked=selected>I'm a checkbox!</Checkbox>
+
+<script>
+  import { Checkbox } from 'office-ui-fabric-svelte';
+
+  export default {
+    components: {
+      Checkbox
+    },
+    data() {
+      return {
+        selected: true
+      }
+    }
+  };
+</script>`}</code></pre>
+
+    <Checkbox bind:checked=selected>I'm a checkbox!</Checkbox>
+
+    <p class="ms-font-xxl">Properties</p>
+    <List>
+      <ListItem
+        primaryText="checked"
+        secondaryText="The current checked state."
+      />
+      <ListItem
+        primaryText="className"
+        secondaryText="An optional class to add to the checkbox."
+      />
+      <ListItem
+        primaryText="disabled"
+        secondaryText="Disabled state of the checkbox."
+      />
+      <ListItem
+        primaryText="id"
+        secondaryText="An optional ID for the control. If not provided, a random ID will be generated."
+      />
+    </List>
+  </main>
+</div>
+
+<style lang="sass">
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Common";
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Responsive.Variables";
+
+  .wrapper {
+    @include flexBox;
+    flex-direction: column;
+    flex: 1;
+    margin: 0 auto;
+    width: -webkit-fill-available;
+    max-width: $ms-screen-xl-min;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 40px 20px;
+  }
+
+  main {
+    flex: 1;
+    padding: 0 20px;
+    padding-bottom: 100px;
+    color: $ms-color-black;
+    background-color: $ms-color-white;
+  }
+
+  .overview {
+    width: 75%;
+  }
+
+  .example {
+    margin: 1em 0;
+  }
+</style>
+
+<script>
+  import { Checkbox, List, ListItem } from '../../../office-ui-fabric-svelte';
+
+  export default {
+    components: {
+      Checkbox,
+      List,
+      ListItem
+    },
+    data() {
+      return {
+        disabled: false,
+        selected: true
+      };
+    }
+  };
+</script>

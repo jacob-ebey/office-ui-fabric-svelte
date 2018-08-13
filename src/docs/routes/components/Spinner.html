@@ -1,0 +1,89 @@
+<div class="wrapper">
+  <h1 class="ms-font-su ms-bgColor-blue">Spinner</h1>
+  <main>
+    <div class="overview">
+      <p class="ms-font-xxl">Overview</p>
+      <p class="ms-font-m-plus">
+        Displays the progress of an operation when the percentage complete can not be determined.
+      </p>
+    </div>
+
+    <div class="example">
+      <p class="ms-font-xxl">Variants</p>
+    </div>
+
+    <div class="example">
+      <p class="ms-font-l">Default</p>
+      <Spinner />
+    </div>
+
+    <p class="ms-font-xxl">Example</p>
+
+    <pre><code>{`<Spinner />
+
+<script>
+  import { Spinner } from 'office-ui-fabric-svelte';
+
+  export default {
+    components: {
+      Spinner
+    }
+  };
+</script>`}</code></pre>
+
+    <p class="ms-font-xxl">Properties</p>
+    <List>
+      <ListItem
+        primaryText="className"
+        secondaryText="An optional class to add to the button."
+      />
+    </List>
+  </main>
+</div>
+
+<style lang="sass">
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Common";
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Responsive.Variables";
+
+  .wrapper {
+    @include flexBox;
+    flex-direction: column;
+    flex: 1;
+    margin: 0 auto;
+    width: -webkit-fill-available;
+    max-width: $ms-screen-xl-min;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 40px 20px;
+  }
+
+  main {
+    flex: 1;
+    padding: 0 20px;
+    padding-bottom: 100px;
+    color: $ms-color-black;
+    background-color: $ms-color-white;
+  }
+
+  .overview {
+    width: 75%;
+  }
+
+  .example {
+    margin: 1em 0;
+  }
+</style>
+
+<script>
+  import { List, ListItem, Spinner } from '../../../office-ui-fabric-svelte';
+
+  export default {
+    components: {
+      List,
+      ListItem,
+      Spinner
+    }
+  };
+</script>

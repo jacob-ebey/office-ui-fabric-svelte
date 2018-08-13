@@ -1,0 +1,72 @@
+<Shell>
+  <div id="routes" />
+
+  {#if activeRoute !== -1}
+    <svelte:component this={routes[activeRoute].component} />
+  {:else}
+    <h1 class="ms-font-su error">Page not fount :(</h1>
+  {/if}
+</Shell>
+
+<style>
+  :global(pre) {
+    font-family: "Courier 10 Pitch", Courier, monospace;
+    font-size: 95%;
+    line-height: 140%;
+    white-space: pre;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+  }       
+    
+  :global(code) {
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+    font-size: 95%;
+    line-height: 140%;
+    white-space: pre;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    background: #faf8f0;
+    display: block;
+    padding: 0.5em 1em;
+    border: 1px solid #bebab0;
+  }
+
+  .error {
+    padding: 0 20px;
+  }
+</style>
+
+<script>
+  import Shell from './components/Shell.html';
+  import Navigo from './routes/navigo';
+  import { routes } from './routes/routes';
+  
+  const nav = new Navigo(null, true);
+
+  export default {
+    components: {
+      Shell
+    },
+    data() {
+      return {
+        activeRoute: -1,
+        routes
+      };
+    },
+    oncreate() {
+      nav.notFound(() => {
+        this.set({ activeRoute: -1 });
+      });
+
+      routes.forEach((r, i) => {
+        nav.on(r.path, () => {
+          this.set({ activeRoute: i });
+        });
+      });
+
+      nav.resolve();
+    }
+  };
+</script>

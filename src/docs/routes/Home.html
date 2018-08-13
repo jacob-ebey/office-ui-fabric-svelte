@@ -1,0 +1,65 @@
+<main>
+  <div class="ms-u-textAlignCenter">
+    <h1 class="ms-font-su">Office UI Fabric Svelte</h1>
+    <p class="ms-font-m get-started">Unofficial front-end Svelte components for building experiences that fit seamlessly into Office and Office 365.</p>
+  
+    <Button href="#get-started" primary>Get Started</Button>
+
+    <div class="built-with">
+      <img alt="Svelte" src="./assets/svelte.png" />
+      <p class="ms-font-xl">Built with Svelte</p>
+      <p class="ms-font-s">Fabric’s robust, up-to-date components are built with Svelte</p>
+      <Button href="#components">See Components</Button>
+    </div>
+  </div>
+</main>
+
+<style lang="sass">
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Responsive.Variables";
+
+  main {
+    flex: 1;
+    margin: 0 auto;
+    padding: 80px 20px;
+    width: -webkit-fill-available;
+    max-width: $ms-screen-xl-min;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  .get-started {
+    margin-bottom: 20px;
+  }
+
+  .built-with {
+    margin-top: 80px;
+
+    & > img {
+      width: 80px;
+      height: 80px;
+    }
+
+    & > .ms-font-xl {
+      margin: 0;
+    }
+
+    & > .ms-font-s {
+      max-width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 20px;
+    }
+  }
+</style>
+
+<script>
+  import { Button } from '../../office-ui-fabric-svelte';
+
+  export default {
+    components: {
+      Button
+    }
+  }
+</script>

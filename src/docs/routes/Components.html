@@ -1,0 +1,82 @@
+<div class="wrapper">
+  <h1 class="ms-font-su ms-bgColor-blue">Components</h1>
+  <main>
+    <List>
+      {#each componentRoutes as route}
+        <ListItem
+          selectable={true}
+          href={`#${route.path}`}
+          primaryText={route.label}
+          secondaryText={route.description}
+        />
+      {/each}
+      <!-- <ListItem
+        selectable={true}
+        href="#components/Dialog"
+        primaryText="Dialog"
+        secondaryText="A modal dialog useful for confirmation dialogs or forms."
+      />
+      <ListItem
+        selectable={true}
+        href="#components/List"
+        primaryText="List"
+        secondaryText="A component similar to outlooks email list."
+      />
+      <ListItem
+        selectable={true}
+        href="#components/Spinner"
+        primaryText="Spinner"
+        secondaryText="An indeterminate loading indicator."
+      />
+      <ListItem
+        selectable={true}
+        href="#components/TextField"
+        primaryText="TextField"
+        secondaryText="A text input for use in forms."
+      /> -->
+    </List>
+  </main>
+</div>
+
+<style lang="sass">
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Common";
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Responsive.Variables";
+
+  .wrapper {
+    @include flexBox;
+    flex-direction: column;
+    flex: 1;
+    margin: 0 auto;
+    width: -webkit-fill-available;
+    max-width: $ms-screen-xl-min;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 40px 20px;
+  }
+
+  main {
+    flex: 1;
+    padding-bottom: 80px;
+    color: $ms-color-black;
+    background-color: $ms-color-neutralLighter;
+  }
+</style>
+
+<script>
+  import { List, ListItem } from '../../office-ui-fabric-svelte';
+  import { componentRoutes } from './components/routes';
+
+  export default {
+    components: {
+      List,
+      ListItem
+    },
+    data() {
+      return {
+        componentRoutes
+      };
+    }
+  };
+</script>

@@ -1,0 +1,136 @@
+<div class="wrapper">
+  <h1 class="ms-font-su ms-bgColor-blue">Button</h1>
+  <main>
+    <div class="overview">
+      <p class="ms-font-xxl">Overview</p>
+      <p class="ms-font-m-plus">
+        Buttons are best used to enable a user to commit a change or complete steps in a task. They are typically found inside
+        forms, dialogs, panels or pages. An example of their usage is confirming the deletion of a file in a confirmation dialog.
+      </p>
+      <p class="ms-font-m-plus">
+        When considering their place in a layout, contemplate the order in which a user will flow through the UI. As an example,
+        in a form, the individual will need to read and interact with the form fields before submiting the form. Therefore, as
+        a general rule, the button should be placed at the bottom of the UI container (a dialog, panel, or page) which holds the related UI elements.
+      </p>
+      <p class="ms-font-m-plus">
+        While buttons can technically be used to navigate a user to another part of the experience, this is not recommended unless that navigation is part of an action or their flow.
+      </p>
+    </div>
+
+    <div class="example">
+      <p class="ms-font-xxl">Variants</p>
+      <Checkbox bind:checked=disabled>Disable buttons</Checkbox>
+    </div>
+  
+    <hr />
+
+    <div class="example">
+      <p class="ms-font-l">Default</p>
+      <Button disabled={disabled}>Button</Button>
+    </div>
+
+    <hr />
+
+    <div class="example">
+      <p class="ms-font-l">Primary</p>
+      <Button primary disabled={disabled}>Button</Button>
+    </div>
+
+    <p class="ms-font-xxl">Example</p>
+
+    <pre><code>{`<Button on:click="console.log('Clicked!')">I'm a button!</Button>
+
+<script>
+  import { Button } from 'office-ui-fabric-svelte';
+
+  export default {
+    components: {
+      Button
+    }
+  };
+</script>`}</code></pre>
+
+    <Button on:click="console.log('Clicked!')">I'm a button!</Button>
+
+    <p class="ms-font-xxl">Properties</p>
+    <List>
+      <ListItem
+        primaryText="className"
+        secondaryText="An optional class to add to the button."
+      />
+      <ListItem
+        primaryText="disabled"
+        secondaryText="Disabled state of the button."
+      />
+      <ListItem
+        primaryText="href"
+        secondaryText="If provided, the button will be rendered as a hyperlink."
+      />
+      <ListItem
+        primaryText="primary"
+        secondaryText="Determines if the button is a primary button."
+      />
+    </List>
+
+    <p class="ms-font-xxl">Events</p>
+    <List>
+      <ListItem
+        primaryText="click"
+        secondaryText="Raised when a user clicks the button and it is not disabled."
+      />
+    </List>
+  </main>
+</div>
+
+<style lang="sass">
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Common";
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Responsive.Variables";
+
+  .wrapper {
+    @include flexBox;
+    flex-direction: column;
+    flex: 1;
+    margin: 0 auto;
+    width: -webkit-fill-available;
+    max-width: $ms-screen-xl-min;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 40px 20px;
+  }
+
+  main {
+    flex: 1;
+    padding: 0 20px;
+    padding-bottom: 100px;
+    color: $ms-color-black;
+    background-color: $ms-color-white;
+  }
+
+  .overview {
+    width: 75%;
+  }
+
+  .example {
+    margin: 1em 0;
+  }
+</style>
+
+<script>
+  import { Button, Checkbox, List, ListItem } from '../../../office-ui-fabric-svelte';
+
+  export default {
+    components: {
+      Button,
+      Checkbox,
+      List,
+      ListItem
+    },
+    data() {
+      return {
+        disabled: false
+      };
+    }
+  };
+</script>
