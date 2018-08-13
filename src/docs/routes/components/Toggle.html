@@ -1,0 +1,124 @@
+<div class="wrapper">
+  <h1 class="ms-font-su ms-bgColor-blue">Toggle</h1>
+  <main>
+    <div class="overview">
+      <p class="ms-font-xxl">Overview</p>
+      <p class="ms-font-m-plus">
+        Allows for turning on or off a setting.
+      </p>
+    </div>
+
+    <div class="example">
+      <p class="ms-font-xxl">Variants</p>
+      <Checkbox bind:checked=disabled>Disable toggles</Checkbox>
+    </div>
+  
+    <hr />
+
+    <div class="example">
+      <p class="ms-font-l">Default</p>
+      <Toggle disabled={disabled}>Default Toggle</Toggle>
+    </div>
+
+    <p class="ms-font-xxl">Example</p>
+
+    <pre><code>{`<Toggle bind:checked=selected>I'm a toggle!</Toggle>
+
+<script>
+  import { Toggle } from 'office-ui-fabric-svelte';
+
+  export default {
+    components: {
+      Toggle
+    },
+    data() {
+      return {
+        selected: true
+      }
+    }
+  };
+</script>`}</code></pre>
+
+    <p class="ms-font-xxl">Properties</p>
+    <List>
+      <ListItem
+        primaryText="checked"
+        secondaryText="The current checked state."
+      />
+      <ListItem
+        primaryText="className"
+        secondaryText="An optional class to add to the Toggle."
+      />
+      <ListItem
+        primaryText="disabled"
+        secondaryText="Disabled state of the Toggle."
+      />
+      <ListItem
+        primaryText="id"
+        secondaryText="An optional ID for the control. If not provided, a random ID will be generated."
+      />
+      <ListItem
+        primaryText="offLabel"
+        secondaryText="The label for when checked is true."
+      />
+      <ListItem
+        primaryText="onLabel"
+        secondaryText="The label for when checked is true."
+      />
+    </List>
+  </main>
+</div>
+
+<style lang="sass">
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Common";
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Responsive.Variables";
+
+  .wrapper {
+    @include flexBox;
+    flex-direction: column;
+    flex: 1;
+    margin: 0 auto;
+    width: -webkit-fill-available;
+    max-width: $ms-screen-xl-min;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 40px 20px;
+  }
+
+  main {
+    flex: 1;
+    padding: 0 20px;
+    padding-bottom: 100px;
+    color: $ms-color-black;
+    background-color: $ms-color-white;
+  }
+
+  .overview {
+    width: 75%;
+  }
+
+  .example {
+    margin: 1em 0;
+  }
+</style>
+
+<script>
+  import { Checkbox, List, ListItem, Toggle } from '../../../office-ui-fabric-svelte';
+
+  export default {
+    components: {
+      Checkbox,
+      List,
+      ListItem,
+      Toggle
+    },
+    data() {
+      return {
+        disabled: false,
+        selected: true
+      };
+    }
+  };
+</script>

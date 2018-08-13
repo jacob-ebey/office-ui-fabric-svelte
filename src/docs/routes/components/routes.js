@@ -5,6 +5,7 @@ import List from './List.html';
 import PasswordField from './PasswordField.html';
 import Spinner from './Spinner.html';
 import TextField from './TextField.html';
+import Toggle from './Toggle.html';
 
 export const componentRoutes = [
   {
@@ -48,5 +49,11 @@ export const componentRoutes = [
     path: 'components/TextField',
     description: 'The TextField component enables a user to type text into an app.',
     component: TextField
+  },
+  {
+    label: 'Toggle',
+    path: 'components/Toggle',
+    description: 'Allows for turning on or off a setting.',
+    component: Toggle
   }
 ]

@@ -1,0 +1,29 @@
+<div class="ms-Toggle {checked?'is-selected':''} {disabled?'is-disabled':''} {className}">
+    <span class="ms-Toggle-description"><slot /></span>
+    <input type="checkbox" id={id} class="ms-Toggle-input" bind:checked="checked" />
+    <label for={id} class="ms-Toggle-field {checked?'is-selected':''} {disabled?'is-disabled':''}">
+        <span class="ms-Label ms-Label--off">{offLabel}</span>
+        <span class="ms-Label ms-Label--on">{onLabel}</span>
+    </label>
+</div>
+
+<style lang="sass">
+  @import "node_modules/office-ui-fabric-core/src/sass/_Fabric.Common";
+  @import "node_modules/office-ui-fabric-js/dist/components/Toggle/Toggle";
+</style>
+
+<script>
+  import { generateGUID } from '../tools';
+
+  export default {
+    data() {
+      return {
+        id: generateGUID(),
+        className: '',
+        disabled: false,
+        offLabel: 'Off',
+        onLabel: 'On'
+      };
+    }
+  };
+</script>

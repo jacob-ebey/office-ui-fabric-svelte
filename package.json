@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.2",
   "name": "office-ui-fabric-svelte",
   "main": "dist/office-ui-fabric-svelte.js",
   "common": "dist/office-ui-fabric-svelte.common.js",

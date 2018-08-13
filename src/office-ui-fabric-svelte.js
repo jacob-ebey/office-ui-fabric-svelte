@@ -6,6 +6,7 @@ import ListItem from './components/ListItem.html';
 import PasswordField from './components/PasswordField.html';
 import Spinner from './components/Spinner.html';
 import TextField from './components/TextField.html';
+import Toggle from './components/Toggle.html';
 
 export {
   Button,
@@ -15,5 +16,6 @@ export {
   ListItem,
   PasswordField,
   Spinner,
-  TextField
+  TextField,
+  Toggle
 };
